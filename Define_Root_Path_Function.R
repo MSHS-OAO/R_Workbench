@@ -1,4 +1,4 @@
-
+#Function to determine path to share drive on R Workbench or R Studio
 
 define_root_path <- function(){
   #Check if directory is from R Workbench; starts with '/home'
