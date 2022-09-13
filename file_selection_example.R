@@ -1,33 +1,17 @@
-default_dir <- paste0("/SharedDrive/data/deans/Presidents/SixSigma/",
-                      "MSHS Productivity/Productivity/Volume - Data/CDMs")
+library(rstudioapi)
 
-all_folders <-
-  list.dirs(
-    path = default_dir,
-    full.names = TRUE
-  )
+default_dir <- "/SharedDrive/deans/Presidents/"
 
-folder_choose <-
-  select.list(
-    choices = c("None", all_folders),
-    title = "CDM Folder Choice",
-    multiple = F,
-    graphics = T,
-    preselect = "None"
-  )
+selected_dir <- selectDirectory(
+  # caption = "Your custom caption",
+  # label = "Your custom label", # for the Select button
+  path = default_dir
+)
 
-all_paths <-
-  list.files(
-    path = folder_choose,
-    pattern = "*.xlsx",
-    full.names = TRUE
-  )
-
-
-CDM_file_path <-   select.list(
-  choices = c("None", all_paths),
-  title = "CDM File Choice",
-  multiple = F,
-  graphics = T,
-  preselect = "None"
+selected_file <- selectFile(
+  # caption = "Your custom caption",
+  # label = "Your custom label", # for the Select button
+  path = default_dir,
+  # filter = "Excel Files (*.xlsx)", # see Documentation on how to use the filter
+  # existing = FALSE # FALSE allows user to enter a new file name
 )
